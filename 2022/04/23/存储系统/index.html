@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"8baobe.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="cache练习题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="存储系统">
+<meta property="og:url" content="https://8baobe.github.io/2022/04/23/%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Hxinlin&#39;s Blog">
+<meta property="og:description" content="cache练习题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-23T01:12:11.992Z">
+<meta property="article:modified_time" content="2022-04-23T02:52:59.496Z">
+<meta property="article:author" content="Hxinlin">
+<meta property="article:tag" content="考研">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://8baobe.github.io/2022/04/23/%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>存储系统 | Hxinlin's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hxinlin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我的日记本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://8baobe.github.io/2022/04/23/%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hxinlin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hxinlin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          存储系统
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-23 09:12:11 / 修改时间：10:52:59" itemprop="dateCreated datePublished" datetime="2022-04-23T09:12:11+08:00">2022-04-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">组成原理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="cache练习题"><a href="#cache练习题" class="headerlink" title="cache练习题"></a>cache练习题</h3><span id="more"></span>
+
+<h4 id="1-cache容量计算"><a href="#1-cache容量计算" class="headerlink" title="1.cache容量计算"></a>1.cache容量计算</h4><p>假定主存地址位数为32位，按字节编址，主存和cache之间采用4-路组相联映射方式，主存块大小为4个字，每字32位，采用直写（Write Throght）方式和LRU替换策略，则能存放32K字数据的cache的总容量至少应有（ ）位<br>A.4672K<br>B.1168K<br>C.1184K<br>D.4736k<br>正确答案：c<br>解析： C、cache共有32K字/4字=8K行，因为采用4-路组相联，因而共有8K/4=2K组，组号占11位；每个主存块为4字=4×32位=16B，故块内地址占4位。因此，标志占32-11-4=17位。4路组相联方式下，LRU替换算法需要每行有2位LRU位 (因为要表示0-3的数字吧)；直写（Write Throght）方式无需修改位（dirty bit）。因而cache总容量为8K×(1+17+2+4×32)=1184K位。</p>
+<h4 id="2-求cache块号"><a href="#2-求cache块号" class="headerlink" title="2.求cache块号"></a>2.求cache块号</h4><blockquote>
+<p> 核心是：定位主存块号</p>
+</blockquote>
+<p>1.有一主存-Cache层次的存储器，其主存容量为1MB,Cache容量为16KB.每字块有8个字，每字32位。采用直接映射存储，若主存地址是35301H，且CPU访问Cache命中，则在Cache的<strong>第152</strong>字块中。（Cache字块起始是第0字块）</p>
+<p>解析：既然有主存地址，且是易于化成二进制的16进制形式，毫不犹豫的拿来化成二进制再说：<br>35301H=0011,0101,0011,0000,0001B35301H=0011,0101,0011,0000,0001B<br>在看一个块内寻址用多少位：8∗32bits=25B8∗32bits=2^5B,这里没说按什么寻址，默认为按B寻址，因此字内寻址用掉5位。<br>Cache总共有多少块呢？16KB/8∗32bits=29块。16KB/8∗32bits=2^9块。<br>因此，将主存地址去掉低5位，再往上数9位：0,1,0011,000B=152D0,1,0011,000B=152D即为所求的Cache块号。</p>
+<p>2.某存储系统中，主存容量是Cache容量的4096倍，Cache被分为64个块。当主存地址采用直接映射时，地址映射表的大小应该是 <strong>64 * 13bit</strong>.<br>PS:b不考虑一致性维护位和替换算法位。</p>
+<p>解析：地址映射表就是标记行列</p>
+<p>主存是Cache的4096=2^12,得出高位主存块的标记是12位。<br>由PS中的补充知道，只需要再加一位基本的：有效位即可。<br>因此，一个Cache快需要13bits进行标识。<br>总共是64块，得出64 * 13bits的答案。</p>
+<p>3.假定主存按字节编址，cache共有64行，采用直接映射方式，主存块大小为32字节，所有编号都从0开始。问主存第2593号单元所在主存块对应的cache行号是（A）。<br>A .17<br>B .34<br>C. 81<br>D .1<br>解析：  A、因为按字节编址，主存块大小为32字节，所以块内地址占5位。采用直接映射方式，共64行，故行号占6位。因为2593=2048+512+32+1=0…01 010001 00001B，根据主存地址划分的结果，可以看出2593单元所在主存块对应的cache行号为010001B=17。</p>
+<h4 id="3-算时钟周期"><a href="#3-算时钟周期" class="headerlink" title="3.算时钟周期"></a>3.算时钟周期</h4><p>假定CPU通过存储器总线读取数据的过程为：发送地址和读命令需1个时钟周期，存储器准备一个数据需8个时钟周期，总线上每传送1个数据需1个时钟周期。若主存和cache之间交换的主存块大小为64B，存取宽度和总线宽度都为4B，则cache的一次缺失损失至少为多少个时钟周期？（C）<br>A. 64<br>B .80<br>C .160<br>D. 72</p>
+<p>解析：一次缺失损失需要从主存读出一个主存块，每个总线事务读取8B，因此需要8根总线事务，每个总线事务所用的时间是1+8+1=10个时钟周期。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%80%83%E7%A0%94/" rel="tag"># 考研</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/22/webug/" rel="prev" title="webug练习">
+      <i class="fa fa-chevron-left"></i> webug练习
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/23/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cache%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">cache练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-cache%E5%AE%B9%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="nav-number">1.1.</span> <span class="nav-text">1.cache容量计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%B1%82cache%E5%9D%97%E5%8F%B7"><span class="nav-number">1.2.</span> <span class="nav-text">2.求cache块号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%AE%97%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F"><span class="nav-number">1.3.</span> <span class="nav-text">3.算时钟周期</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hxinlin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hxinlin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
